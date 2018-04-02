@@ -21,6 +21,7 @@ global model, graph
 model, graph = init()
 
 def convertImage(imgData1):
+	imgData1=imgData1.decode('utf-8')
 	imgstr = re.search(r'base64,(.*)',imgData1).group(1)
 	#print(imgstr)
 	with open('output.png','wb') as output:
@@ -34,9 +35,9 @@ def index():
 @app.route('/predict/',methods=['GET','POST'])
 def predict():
 	imgData = request.get_data()
-	imgDataDecoded=imgData.decode('utf-8')
+	#imgDataDecoded=imgData.decode('utf-8')
 
-	convertImage(imgDataDecoded)
+	#convertImage(imgDataDecoded)
 	print("debug")
 
 	x = imread('output.png',mode='L')
