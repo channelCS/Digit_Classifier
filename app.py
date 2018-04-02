@@ -36,7 +36,7 @@ def predict():
 	imgData = request.get_data()
 	imgDataDecoded=imgData.decode('utf-8')
 
-	convertImage(imgData)
+	convertImage(imgDataDecoded)
 	print("debug")
 
 	x = imread('output.png',mode='L')
