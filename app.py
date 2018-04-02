@@ -34,6 +34,7 @@ def index():
 @app.route('/predict/',methods=['GET','POST'])
 def predict():
 	imgData = request.get_data()
+	imgDataDecoded=imgData.decode('utf-8')
 
 	convertImage(imgData)
 	print("debug")
